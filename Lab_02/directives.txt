@@ -1,0 +1,5 @@
+matrixAdd 0 2
+elementAdd 2 5.0
+matrixMultiply 3 1
+elementMultiply 5 3.0
+transpose 4
