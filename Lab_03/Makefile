@@ -13,8 +13,8 @@ Lab_03: Executive.o main.o
 Executive.o: Executive.cpp Executive.h Count.h CountArray.h
 	g++ -std=c++11 -c Executive.cpp
 
-main.o: main.cpp Matrix.h Executive.h
+main.o: main.cpp Executive.h
 	g++ -std=c++11 -c main.cpp
 
 clean:
-	rm Lab_03 main.o Count.o CountArray.o Executive.o
+	rm Lab_03 main.o Executive.o

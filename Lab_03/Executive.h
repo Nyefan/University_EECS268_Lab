@@ -8,6 +8,7 @@
 #pragma once
 
 #include <fstream>
+#include <iostream>
 
 #include "CountArray.h"
 
@@ -16,10 +17,14 @@ class Executive {
 public:
     Executive(void);
     Executive(const Executive &orig);
-    Executive(std::istream &charStream, std::istream &intStream, std::istream &strStream);
+    Executive(std::ifstream &charStream, std::ifstream &intStream, std::ifstream &strStream);
     virtual ~Executive(void);
 
 private:
+    bool toPrintChar = false;
+    bool toPrintInt = false;
+    bool toPrintStr = false;
+  
     CountArray<char> charArray;
     CountArray<int> intArray;
     CountArray<std::string> strArray;

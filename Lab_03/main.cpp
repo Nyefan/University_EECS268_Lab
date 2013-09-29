@@ -9,13 +9,17 @@
 
 #include "Executive.h"
 
-int main(int argc, char**argv) {
+int main() {
     std::string charFile = ".//charFile.txt";
     std::string intFile = ".//intFile.txt";
     std::string strFile = ".//strFile.txt";
 
-    Executive overSeer = Executive(std::ifstream(charFile), std::ifstream(intFile), std::ifstream(strFile));
+    std::ifstream charStream(charFile);
+    std::ifstream intStream(intFile);
+    std::ifstream strStream(strFile);
 
+    Executive overSeer = Executive(charStream, intStream, strStream);
+    
     overSeer.print();
     //overSeer.~Executive();
 }

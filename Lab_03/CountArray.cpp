@@ -5,6 +5,9 @@
  * Created on September 16, 2013
  */
 
+#include "Count.h"
+
+
 //#include "CountArray.h"
 
 template <typename T>
@@ -31,8 +34,9 @@ CountArray<T>::~CountArray(void) {
 
 template <typename T>
 void CountArray<T>::bumpCount(T t) {
+    int indexOfT = 0;
     // Bump the count of t an equivalent object is already in container;
-    if (contains(T, indexOfT)) {
+    if (contains(t, indexOfT)) {
         container[indexOfT].bumpCount();
     }
 
@@ -41,7 +45,7 @@ void CountArray<T>::bumpCount(T t) {
         if (numItemsStored >= arraySize) {
             int tempSize = 2*arraySize;
             Count<T> *temp = new Count<T>[tempSize];
-            for (int i = 0; i < arraySize) {
+            for (int i = 0; i < arraySize; i++) {
                 temp[i] = container[i];
             }
             delete container;
@@ -70,7 +74,7 @@ int CountArray<T>::getNumItemsStored() const {
 template <typename T>
 bool CountArray<T>::contains(T t, int &index) const {
     for (int i = 0; i < numItemsStored; i++) {
-        if (container[i] == t) {
+        if (container[i].getItem() == t) {
             index = i;
             return true;
         }
